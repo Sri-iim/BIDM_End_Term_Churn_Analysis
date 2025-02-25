@@ -4,7 +4,7 @@
   "metadata": {
     "colab": {
       "provenance": [],
-      "authorship_tag": "ABX9TyNgvCoG0d24/y5XPuyEI66W",
+      "authorship_tag": "ABX9TyPqGKsu1HSLHHKIBskoqjyH",
       "include_colab_link": true
     },
     "kernelspec": {
@@ -28,21 +28,20 @@
     },
     {
       "cell_type": "code",
-      "execution_count": null,
+      "execution_count": 184,
       "metadata": {
         "colab": {
           "base_uri": "https://localhost:8080/"
         },
         "id": "2Dzvn5nDw2dv",
-        "outputId": "93ca548e-f6c7-4019-830c-431a6411bad5"
+        "outputId": "9e5933a5-63e6-4436-a46f-f58d518c8e0b"
       },
       "outputs": [
         {
           "output_type": "stream",
           "name": "stdout",
           "text": [
-            "Collecting streamlit\n",
-            "  Downloading streamlit-1.42.2-py2.py3-none-any.whl.metadata (8.9 kB)\n",
+            "Requirement already satisfied: streamlit in /usr/local/lib/python3.11/dist-packages (1.42.2)\n",
             "Requirement already satisfied: pandas in /usr/local/lib/python3.11/dist-packages (2.2.2)\n",
             "Requirement already satisfied: scikit-learn in /usr/local/lib/python3.11/dist-packages (1.6.1)\n",
             "Requirement already satisfied: altair<6,>=4.0 in /usr/local/lib/python3.11/dist-packages (from streamlit) (5.5.0)\n",
@@ -59,12 +58,9 @@
             "Requirement already satisfied: tenacity<10,>=8.1.0 in /usr/local/lib/python3.11/dist-packages (from streamlit) (9.0.0)\n",
             "Requirement already satisfied: toml<2,>=0.10.1 in /usr/local/lib/python3.11/dist-packages (from streamlit) (0.10.2)\n",
             "Requirement already satisfied: typing-extensions<5,>=4.4.0 in /usr/local/lib/python3.11/dist-packages (from streamlit) (4.12.2)\n",
-            "Collecting watchdog<7,>=2.1.5 (from streamlit)\n",
-            "  Downloading watchdog-6.0.0-py3-none-manylinux2014_x86_64.whl.metadata (44 kB)\n",
-            "\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m44.3/44.3 kB\u001b[0m \u001b[31m1.5 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
-            "\u001b[?25hRequirement already satisfied: gitpython!=3.1.19,<4,>=3.0.7 in /usr/local/lib/python3.11/dist-packages (from streamlit) (3.1.44)\n",
-            "Collecting pydeck<1,>=0.8.0b4 (from streamlit)\n",
-            "  Downloading pydeck-0.9.1-py2.py3-none-any.whl.metadata (4.1 kB)\n",
+            "Requirement already satisfied: watchdog<7,>=2.1.5 in /usr/local/lib/python3.11/dist-packages (from streamlit) (6.0.0)\n",
+            "Requirement already satisfied: gitpython!=3.1.19,<4,>=3.0.7 in /usr/local/lib/python3.11/dist-packages (from streamlit) (3.1.44)\n",
+            "Requirement already satisfied: pydeck<1,>=0.8.0b4 in /usr/local/lib/python3.11/dist-packages (from streamlit) (0.9.1)\n",
             "Requirement already satisfied: tornado<7,>=6.0.3 in /usr/local/lib/python3.11/dist-packages (from streamlit) (6.4.2)\n",
             "Requirement already satisfied: python-dateutil>=2.8.2 in /usr/local/lib/python3.11/dist-packages (from pandas) (2.8.2)\n",
             "Requirement already satisfied: pytz>=2020.1 in /usr/local/lib/python3.11/dist-packages (from pandas) (2025.1)\n",
@@ -89,21 +85,31 @@
             "Requirement already satisfied: jsonschema-specifications>=2023.03.6 in /usr/local/lib/python3.11/dist-packages (from jsonschema>=3.0->altair<6,>=4.0->streamlit) (2024.10.1)\n",
             "Requirement already satisfied: referencing>=0.28.4 in /usr/local/lib/python3.11/dist-packages (from jsonschema>=3.0->altair<6,>=4.0->streamlit) (0.36.2)\n",
             "Requirement already satisfied: rpds-py>=0.7.1 in /usr/local/lib/python3.11/dist-packages (from jsonschema>=3.0->altair<6,>=4.0->streamlit) (0.22.3)\n",
-            "Requirement already satisfied: mdurl~=0.1 in /usr/local/lib/python3.11/dist-packages (from markdown-it-py>=2.2.0->rich<14,>=10.14.0->streamlit) (0.1.2)\n",
-            "Downloading streamlit-1.42.2-py2.py3-none-any.whl (9.6 MB)\n",
-            "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m9.6/9.6 MB\u001b[0m \u001b[31m61.4 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
-            "\u001b[?25hDownloading pydeck-0.9.1-py2.py3-none-any.whl (6.9 MB)\n",
-            "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m6.9/6.9 MB\u001b[0m \u001b[31m96.6 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
-            "\u001b[?25hDownloading watchdog-6.0.0-py3-none-manylinux2014_x86_64.whl (79 kB)\n",
-            "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m79.1/79.1 kB\u001b[0m \u001b[31m5.5 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
-            "\u001b[?25hInstalling collected packages: watchdog, pydeck, streamlit\n",
-            "Successfully installed pydeck-0.9.1 streamlit-1.42.2 watchdog-6.0.0\n"
+            "Requirement already satisfied: mdurl~=0.1 in /usr/local/lib/python3.11/dist-packages (from markdown-it-py>=2.2.0->rich<14,>=10.14.0->streamlit) (0.1.2)\n"
           ]
         }
       ],
       "source": [
         "pip install streamlit pandas scikit-learn"
       ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "import numpy as np\n",
+        "from sklearn.model_selection import train_test_split\n",
+        "from sklearn.preprocessing import StandardScaler, OneHotEncoder\n",
+        "from sklearn.compose import ColumnTransformer\n",
+        "from sklearn.linear_model import LogisticRegression\n",
+        "from sklearn.metrics import accuracy_score, classification_report, confusion_matrix\n",
+        "import plotly.express as px  # For visualizations"
+      ],
+      "metadata": {
+        "id": "Dbpl2vwFdA__"
+      },
+      "execution_count": 130,
+      "outputs": []
     },
     {
       "cell_type": "code",
@@ -122,9 +128,9 @@
           "height": 90
         },
         "id": "5swXA6hEMGxJ",
-        "outputId": "6162fed3-b2b9-4cd5-f301-3d8df0720cc4"
+        "outputId": "b24fea8e-88e3-4e86-f536-1dac537029d5"
       },
-      "execution_count": null,
+      "execution_count": 198,
       "outputs": [
         {
           "output_type": "display_data",
@@ -134,9 +140,9 @@
             ],
             "text/html": [
               "\n",
-              "     <input type=\"file\" id=\"files-a155321c-5fef-44ed-9464-07f148801cd6\" name=\"files[]\" multiple disabled\n",
+              "     <input type=\"file\" id=\"files-46c133fc-c5bf-4a28-a54f-df035e14647f\" name=\"files[]\" multiple disabled\n",
               "        style=\"border:none\" />\n",
-              "     <output id=\"result-a155321c-5fef-44ed-9464-07f148801cd6\">\n",
+              "     <output id=\"result-46c133fc-c5bf-4a28-a54f-df035e14647f\">\n",
               "      Upload widget is only available when the cell has been executed in the\n",
               "      current browser session. Please rerun this cell to enable.\n",
               "      </output>\n",
@@ -324,8 +330,8 @@
           "output_type": "stream",
           "name": "stdout",
           "text": [
-            "Saving WA_Fn-UseC_-Telco-Customer-Churn.csv to WA_Fn-UseC_-Telco-Customer-Churn.csv\n",
-            "User uploaded file \"WA_Fn-UseC_-Telco-Customer-Churn.csv\" with length 977501 bytes\n"
+            "Saving WA_Fn-UseC_-Telco-Customer-Churn.csv to WA_Fn-UseC_-Telco-Customer-Churn (4).csv\n",
+            "User uploaded file \"WA_Fn-UseC_-Telco-Customer-Churn (4).csv\" with length 977501 bytes\n"
           ]
         }
       ]
@@ -363,16 +369,16 @@
         "\n",
         "import pandas as pd\n",
         "data = pd.read_csv('WA_Fn-UseC_-Telco-Customer-Churn.csv')\n",
-        "print(data.head()) # Display the first few rows\n"
+        "\n"
       ],
       "metadata": {
         "colab": {
           "base_uri": "https://localhost:8080/"
         },
         "id": "BUFCj98Kydz0",
-        "outputId": "f8485e35-4e84-4d31-b17f-b670a0fbf094"
+        "outputId": "40afd67e-8104-4732-adc8-bfee6c7a6bed"
       },
-      "execution_count": null,
+      "execution_count": 132,
       "outputs": [
         {
           "output_type": "stream",
@@ -414,12 +420,70 @@
     {
       "cell_type": "code",
       "source": [
+        "print(data.head()) # Display the first few rows"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "xRERDy4iIS1_",
+        "outputId": "1f992106-a7df-4051-8ba5-e4fd8b3fe90e"
+      },
+      "execution_count": 199,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "   customerID  gender  SeniorCitizen  Partner  Dependents  tenure  \\\n",
+            "0  7590-VHVEG     NaN              0      NaN         NaN       1   \n",
+            "1  5575-GNVDE     NaN              0      NaN         NaN      34   \n",
+            "2  3668-QPYBK     NaN              0      NaN         NaN       2   \n",
+            "3  7795-CFOCW     NaN              0      NaN         NaN      45   \n",
+            "4  9237-HQITU     NaN              0      NaN         NaN       2   \n",
+            "\n",
+            "   PhoneService     MultipleLines InternetService OnlineSecurity  ...  \\\n",
+            "0           NaN  No phone service             DSL             No  ...   \n",
+            "1           NaN                No             DSL            Yes  ...   \n",
+            "2           NaN                No             DSL            Yes  ...   \n",
+            "3           NaN  No phone service             DSL            Yes  ...   \n",
+            "4           NaN                No     Fiber optic             No  ...   \n",
+            "\n",
+            "  DeviceProtection TechSupport StreamingTV StreamingMovies        Contract  \\\n",
+            "0               No          No          No              No  Month-to-month   \n",
+            "1              Yes          No          No              No        One year   \n",
+            "2               No          No          No              No  Month-to-month   \n",
+            "3              Yes         Yes          No              No        One year   \n",
+            "4               No          No          No              No  Month-to-month   \n",
+            "\n",
+            "  PaperlessBilling              PaymentMethod MonthlyCharges  TotalCharges  \\\n",
+            "0              NaN           Electronic check          29.85         29.85   \n",
+            "1              NaN               Mailed check          56.95       1889.50   \n",
+            "2              NaN               Mailed check          53.85        108.15   \n",
+            "3              NaN  Bank transfer (automatic)          42.30       1840.75   \n",
+            "4              NaN           Electronic check          70.70        151.65   \n",
+            "\n",
+            "   Churn  \n",
+            "0      0  \n",
+            "1      0  \n",
+            "2      1  \n",
+            "3      0  \n",
+            "4      1  \n",
+            "\n",
+            "[5 rows x 21 columns]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
         "   import numpy as np\n"
       ],
       "metadata": {
         "id": "skZOIcZuM36I"
       },
-      "execution_count": null,
+      "execution_count": 133,
       "outputs": []
     },
     {
@@ -430,7 +494,7 @@
       "metadata": {
         "id": "Us1KX9KGM5wz"
       },
-      "execution_count": null,
+      "execution_count": 134,
       "outputs": []
     },
     {
@@ -445,41 +509,48 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "46-9oXppNE_9",
-        "outputId": "3b2c8113-c964-46ef-d5a9-1e6c52298f7e"
+        "outputId": "6a667e76-0d72-4251-e2e2-d825e104305b"
       },
-      "execution_count": null,
+      "execution_count": 200,
       "outputs": [
         {
           "output_type": "stream",
           "name": "stdout",
           "text": [
-            "   customerID  gender  SeniorCitizen Partner Dependents  tenure PhoneService  \\\n",
-            "0  7590-VHVEG  Female              0     Yes         No       1           No   \n",
-            "1  5575-GNVDE    Male              0      No         No      34          Yes   \n",
-            "2  3668-QPYBK    Male              0      No         No       2          Yes   \n",
-            "3  7795-CFOCW    Male              0      No         No      45           No   \n",
-            "4  9237-HQITU  Female              0      No         No       2          Yes   \n",
+            "   customerID  gender  SeniorCitizen  Partner  Dependents  tenure  \\\n",
+            "0  7590-VHVEG     NaN              0      NaN         NaN       1   \n",
+            "1  5575-GNVDE     NaN              0      NaN         NaN      34   \n",
+            "2  3668-QPYBK     NaN              0      NaN         NaN       2   \n",
+            "3  7795-CFOCW     NaN              0      NaN         NaN      45   \n",
+            "4  9237-HQITU     NaN              0      NaN         NaN       2   \n",
             "\n",
-            "      MultipleLines InternetService OnlineSecurity  ... DeviceProtection  \\\n",
-            "0  No phone service             DSL             No  ...               No   \n",
-            "1                No             DSL            Yes  ...              Yes   \n",
-            "2                No             DSL            Yes  ...               No   \n",
-            "3  No phone service             DSL            Yes  ...              Yes   \n",
-            "4                No     Fiber optic             No  ...               No   \n",
+            "   PhoneService     MultipleLines InternetService OnlineSecurity  ...  \\\n",
+            "0           NaN  No phone service             DSL             No  ...   \n",
+            "1           NaN                No             DSL            Yes  ...   \n",
+            "2           NaN                No             DSL            Yes  ...   \n",
+            "3           NaN  No phone service             DSL            Yes  ...   \n",
+            "4           NaN                No     Fiber optic             No  ...   \n",
             "\n",
-            "  TechSupport StreamingTV StreamingMovies        Contract PaperlessBilling  \\\n",
-            "0          No          No              No  Month-to-month              Yes   \n",
-            "1          No          No              No        One year               No   \n",
-            "2          No          No              No  Month-to-month              Yes   \n",
-            "3         Yes          No              No        One year               No   \n",
-            "4          No          No              No  Month-to-month              Yes   \n",
+            "  DeviceProtection TechSupport StreamingTV StreamingMovies        Contract  \\\n",
+            "0               No          No          No              No  Month-to-month   \n",
+            "1              Yes          No          No              No        One year   \n",
+            "2               No          No          No              No  Month-to-month   \n",
+            "3              Yes         Yes          No              No        One year   \n",
+            "4               No          No          No              No  Month-to-month   \n",
             "\n",
-            "               PaymentMethod MonthlyCharges  TotalCharges Churn  \n",
-            "0           Electronic check          29.85         29.85    No  \n",
-            "1               Mailed check          56.95        1889.5    No  \n",
-            "2               Mailed check          53.85        108.15   Yes  \n",
-            "3  Bank transfer (automatic)          42.30       1840.75    No  \n",
-            "4           Electronic check          70.70        151.65   Yes  \n",
+            "  PaperlessBilling              PaymentMethod MonthlyCharges  TotalCharges  \\\n",
+            "0              NaN           Electronic check          29.85         29.85   \n",
+            "1              NaN               Mailed check          56.95       1889.50   \n",
+            "2              NaN               Mailed check          53.85        108.15   \n",
+            "3              NaN  Bank transfer (automatic)          42.30       1840.75   \n",
+            "4              NaN           Electronic check          70.70        151.65   \n",
+            "\n",
+            "   Churn  \n",
+            "0      0  \n",
+            "1      0  \n",
+            "2      1  \n",
+            "3      0  \n",
+            "4      1  \n",
             "\n",
             "[5 rows x 21 columns]\n",
             "<class 'pandas.core.frame.DataFrame'>\n",
@@ -488,12 +559,12 @@
             " #   Column            Non-Null Count  Dtype  \n",
             "---  ------            --------------  -----  \n",
             " 0   customerID        7043 non-null   object \n",
-            " 1   gender            7043 non-null   object \n",
+            " 1   gender            0 non-null      float64\n",
             " 2   SeniorCitizen     7043 non-null   int64  \n",
-            " 3   Partner           7043 non-null   object \n",
-            " 4   Dependents        7043 non-null   object \n",
+            " 3   Partner           0 non-null      float64\n",
+            " 4   Dependents        0 non-null      float64\n",
             " 5   tenure            7043 non-null   int64  \n",
-            " 6   PhoneService      7043 non-null   object \n",
+            " 6   PhoneService      0 non-null      float64\n",
             " 7   MultipleLines     7043 non-null   object \n",
             " 8   InternetService   7043 non-null   object \n",
             " 9   OnlineSecurity    7043 non-null   object \n",
@@ -503,23 +574,33 @@
             " 13  StreamingTV       7043 non-null   object \n",
             " 14  StreamingMovies   7043 non-null   object \n",
             " 15  Contract          7043 non-null   object \n",
-            " 16  PaperlessBilling  7043 non-null   object \n",
+            " 16  PaperlessBilling  0 non-null      float64\n",
             " 17  PaymentMethod     7043 non-null   object \n",
             " 18  MonthlyCharges    7043 non-null   float64\n",
-            " 19  TotalCharges      7043 non-null   object \n",
-            " 20  Churn             7043 non-null   object \n",
-            "dtypes: float64(1), int64(2), object(18)\n",
+            " 19  TotalCharges      7043 non-null   float64\n",
+            " 20  Churn             7043 non-null   int64  \n",
+            "dtypes: float64(7), int64(3), object(11)\n",
             "memory usage: 1.1+ MB\n",
             "None\n",
-            "       SeniorCitizen       tenure  MonthlyCharges\n",
-            "count    7043.000000  7043.000000     7043.000000\n",
-            "mean        0.162147    32.371149       64.761692\n",
-            "std         0.368612    24.559481       30.090047\n",
-            "min         0.000000     0.000000       18.250000\n",
-            "25%         0.000000     9.000000       35.500000\n",
-            "50%         0.000000    29.000000       70.350000\n",
-            "75%         0.000000    55.000000       89.850000\n",
-            "max         1.000000    72.000000      118.750000\n"
+            "       gender  SeniorCitizen  Partner  Dependents       tenure  PhoneService  \\\n",
+            "count     0.0    7043.000000      0.0         0.0  7043.000000           0.0   \n",
+            "mean      NaN       0.162147      NaN         NaN    32.371149           NaN   \n",
+            "std       NaN       0.368612      NaN         NaN    24.559481           NaN   \n",
+            "min       NaN       0.000000      NaN         NaN     0.000000           NaN   \n",
+            "25%       NaN       0.000000      NaN         NaN     9.000000           NaN   \n",
+            "50%       NaN       0.000000      NaN         NaN    29.000000           NaN   \n",
+            "75%       NaN       0.000000      NaN         NaN    55.000000           NaN   \n",
+            "max       NaN       1.000000      NaN         NaN    72.000000           NaN   \n",
+            "\n",
+            "       PaperlessBilling  MonthlyCharges  TotalCharges        Churn  \n",
+            "count               0.0     7043.000000   7043.000000  7043.000000  \n",
+            "mean                NaN       64.761692   2279.734304     0.265370  \n",
+            "std                 NaN       30.090047   2266.794470     0.441561  \n",
+            "min                 NaN       18.250000      0.000000     0.000000  \n",
+            "25%                 NaN       35.500000    398.550000     0.000000  \n",
+            "50%                 NaN       70.350000   1394.550000     0.000000  \n",
+            "75%                 NaN       89.850000   3786.600000     1.000000  \n",
+            "max                 NaN      118.750000   8684.800000     1.000000  \n"
           ]
         }
       ]
@@ -533,7 +614,7 @@
       "metadata": {
         "id": "CeCxtll-NSxx"
       },
-      "execution_count": null,
+      "execution_count": 201,
       "outputs": []
     },
     {
@@ -547,23 +628,33 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "CQvQ44IVNbow",
-        "outputId": "7f15b4a4-76e8-47df-c000-71b61c823b8c"
+        "outputId": "4332d460-5e8d-48df-8109-09873f3b7ed1"
       },
-      "execution_count": null,
+      "execution_count": 202,
       "outputs": [
         {
           "output_type": "stream",
           "name": "stdout",
           "text": [
-            "       SeniorCitizen       tenure  MonthlyCharges\n",
-            "count    7043.000000  7043.000000     7043.000000\n",
-            "mean        0.162147    32.371149       64.761692\n",
-            "std         0.368612    24.559481       30.090047\n",
-            "min         0.000000     0.000000       18.250000\n",
-            "25%         0.000000     9.000000       35.500000\n",
-            "50%         0.000000    29.000000       70.350000\n",
-            "75%         0.000000    55.000000       89.850000\n",
-            "max         1.000000    72.000000      118.750000\n"
+            "       gender  SeniorCitizen  Partner  Dependents       tenure  PhoneService  \\\n",
+            "count     0.0    7043.000000      0.0         0.0  7043.000000           0.0   \n",
+            "mean      NaN       0.162147      NaN         NaN    32.371149           NaN   \n",
+            "std       NaN       0.368612      NaN         NaN    24.559481           NaN   \n",
+            "min       NaN       0.000000      NaN         NaN     0.000000           NaN   \n",
+            "25%       NaN       0.000000      NaN         NaN     9.000000           NaN   \n",
+            "50%       NaN       0.000000      NaN         NaN    29.000000           NaN   \n",
+            "75%       NaN       0.000000      NaN         NaN    55.000000           NaN   \n",
+            "max       NaN       1.000000      NaN         NaN    72.000000           NaN   \n",
+            "\n",
+            "       PaperlessBilling  MonthlyCharges  TotalCharges        Churn  \n",
+            "count               0.0     7043.000000   7043.000000  7043.000000  \n",
+            "mean                NaN       64.761692   2279.734304     0.265370  \n",
+            "std                 NaN       30.090047   2266.794470     0.441561  \n",
+            "min                 NaN       18.250000      0.000000     0.000000  \n",
+            "25%                 NaN       35.500000    398.550000     0.000000  \n",
+            "50%                 NaN       70.350000   1394.550000     0.000000  \n",
+            "75%                 NaN       89.850000   3786.600000     1.000000  \n",
+            "max                 NaN      118.750000   8684.800000     1.000000  \n"
           ]
         }
       ]
@@ -579,9 +670,9 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "edh5UdH5Niyj",
-        "outputId": "ce323e0e-a010-42a7-c0f8-1a17f18aac45"
+        "outputId": "990b9edf-a368-42f5-eff7-e94a1af5ece8"
       },
-      "execution_count": null,
+      "execution_count": 203,
       "outputs": [
         {
           "output_type": "stream",
@@ -593,12 +684,12 @@
             " #   Column            Non-Null Count  Dtype  \n",
             "---  ------            --------------  -----  \n",
             " 0   customerID        7043 non-null   object \n",
-            " 1   gender            7043 non-null   object \n",
+            " 1   gender            0 non-null      float64\n",
             " 2   SeniorCitizen     7043 non-null   int64  \n",
-            " 3   Partner           7043 non-null   object \n",
-            " 4   Dependents        7043 non-null   object \n",
+            " 3   Partner           0 non-null      float64\n",
+            " 4   Dependents        0 non-null      float64\n",
             " 5   tenure            7043 non-null   int64  \n",
-            " 6   PhoneService      7043 non-null   object \n",
+            " 6   PhoneService      0 non-null      float64\n",
             " 7   MultipleLines     7043 non-null   object \n",
             " 8   InternetService   7043 non-null   object \n",
             " 9   OnlineSecurity    7043 non-null   object \n",
@@ -608,12 +699,12 @@
             " 13  StreamingTV       7043 non-null   object \n",
             " 14  StreamingMovies   7043 non-null   object \n",
             " 15  Contract          7043 non-null   object \n",
-            " 16  PaperlessBilling  7043 non-null   object \n",
+            " 16  PaperlessBilling  0 non-null      float64\n",
             " 17  PaymentMethod     7043 non-null   object \n",
             " 18  MonthlyCharges    7043 non-null   float64\n",
-            " 19  TotalCharges      7032 non-null   object \n",
-            " 20  Churn             7043 non-null   object \n",
-            "dtypes: float64(1), int64(2), object(18)\n",
+            " 19  TotalCharges      7043 non-null   float64\n",
+            " 20  Churn             7043 non-null   int64  \n",
+            "dtypes: float64(7), int64(3), object(11)\n",
             "memory usage: 1.1+ MB\n",
             "None\n"
           ]
@@ -631,35 +722,35 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "p3ixoh8JOPDL",
-        "outputId": "11be84bb-a347-4adc-ac64-ef435b4e99ef"
+        "outputId": "bc62498f-6f68-4dd1-8d84-b9760b27554a"
       },
-      "execution_count": null,
+      "execution_count": 212,
       "outputs": [
         {
           "output_type": "stream",
           "name": "stdout",
           "text": [
-            "customerID           0\n",
-            "gender               0\n",
-            "SeniorCitizen        0\n",
-            "Partner              0\n",
-            "Dependents           0\n",
-            "tenure               0\n",
-            "PhoneService         0\n",
-            "MultipleLines        0\n",
-            "InternetService      0\n",
-            "OnlineSecurity       0\n",
-            "OnlineBackup         0\n",
-            "DeviceProtection     0\n",
-            "TechSupport          0\n",
-            "StreamingTV          0\n",
-            "StreamingMovies      0\n",
-            "Contract             0\n",
-            "PaperlessBilling     0\n",
-            "PaymentMethod        0\n",
-            "MonthlyCharges       0\n",
-            "TotalCharges        11\n",
-            "Churn                0\n",
+            "customerID             0\n",
+            "gender                 0\n",
+            "SeniorCitizen          0\n",
+            "Partner             7043\n",
+            "Dependents          7043\n",
+            "tenure                 0\n",
+            "PhoneService        7043\n",
+            "MultipleLines          0\n",
+            "InternetService        0\n",
+            "OnlineSecurity         0\n",
+            "OnlineBackup           0\n",
+            "DeviceProtection       0\n",
+            "TechSupport            0\n",
+            "StreamingTV            0\n",
+            "StreamingMovies        0\n",
+            "Contract               0\n",
+            "PaperlessBilling    7043\n",
+            "PaymentMethod          0\n",
+            "MonthlyCharges         0\n",
+            "TotalCharges           0\n",
+            "Churn                  0\n",
             "dtype: int64\n"
           ]
         }
@@ -670,13 +761,141 @@
       "source": [
         "# Identify missing values (represented by empty strings) and replace them with NaN\n",
         "data['TotalCharges'] = data['TotalCharges'].replace(' ', np.nan)\n",
-        "\n"
+        "\n",
+        "# Print the updated 'TotalCharges' column to verify\n",
+        "print(data['TotalCharges'].head())\n",
+        "\n",
+        "# Print the counts to verify (more thorough)\n",
+        "print(data['TotalCharges'].value_counts())"
       ],
       "metadata": {
-        "id": "QZYq0m-7OjGB"
+        "id": "QZYq0m-7OjGB",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "645adf04-71c6-44fa-f5be-1d262d15e9d9"
+      },
+      "execution_count": 191,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "0      29.85\n",
+            "1    1889.50\n",
+            "2     108.15\n",
+            "3    1840.75\n",
+            "4     151.65\n",
+            "Name: TotalCharges, dtype: float64\n",
+            "TotalCharges\n",
+            "0.00       11\n",
+            "20.20      11\n",
+            "19.75       9\n",
+            "20.05       8\n",
+            "19.90       8\n",
+            "           ..\n",
+            "6849.40     1\n",
+            "692.35      1\n",
+            "130.15      1\n",
+            "3211.90     1\n",
+            "6844.50     1\n",
+            "Name: count, Length: 6531, dtype: int64\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "iT-sl7cGJABt"
       },
       "execution_count": null,
       "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Identify missing values (represented by empty strings) and replace them with NaN\n",
+        "data['gender'] = data['gender'].replace(' ', np.nan)\n",
+        "\n",
+        "# Print the updated 'TotalCharges' column to verify\n",
+        "print(data['gender'].head())\n",
+        "\n",
+        "# Print the counts to verify (more thorough)\n",
+        "print(data['gender'].value_counts())"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "1fd0666e-e917-47d3-a830-c32fde7ca34b",
+        "id": "7nZab9eiJAoR"
+      },
+      "execution_count": 207,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "0      29.85\n",
+            "1    1889.50\n",
+            "2     108.15\n",
+            "3    1840.75\n",
+            "4     151.65\n",
+            "Name: gender, dtype: float64\n",
+            "gender\n",
+            "0.00       11\n",
+            "20.20      11\n",
+            "19.75       9\n",
+            "20.05       8\n",
+            "19.90       8\n",
+            "           ..\n",
+            "6849.40     1\n",
+            "692.35      1\n",
+            "130.15      1\n",
+            "3211.90     1\n",
+            "6844.50     1\n",
+            "Name: count, Length: 6531, dtype: int64\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Identify missing values (represented by empty strings) and replace them with NaN\n",
+        "data['Partner'] = data['Partner'].replace(' ', np.nan)\n",
+        "\n",
+        "# Print the updated 'TotalCharges' column to verify\n",
+        "print(data['Partner'].head())\n",
+        "\n",
+        "# Print the counts to verify (more thorough)\n",
+        "print(data['Partner'].value_counts())"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "xnh0ABiyKJ5a",
+        "outputId": "396b07c3-2bec-4f53-908e-9e7b1d195bac"
+      },
+      "execution_count": 211,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "0   NaN\n",
+            "1   NaN\n",
+            "2   NaN\n",
+            "3   NaN\n",
+            "4   NaN\n",
+            "Name: Partner, dtype: float64\n",
+            "Series([], Name: count, dtype: int64)\n"
+          ]
+        }
+      ]
     },
     {
       "cell_type": "code",
@@ -688,40 +907,8 @@
       "metadata": {
         "id": "tETLhdcKPgk2"
       },
-      "execution_count": null,
+      "execution_count": 194,
       "outputs": []
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "\n",
-        "# Replace NaN values in 'TotalCharges' with 0\n",
-        "data['TotalCharges'] = data['TotalCharges'].fillna(0)\n",
-        "\n",
-        "# (Optional) Verify that the missing values have been handled\n",
-        "print(data['TotalCharges'].isnull().sum())  # Should output 0\n",
-        "\n",
-        "# (Optional) Check the data type of the column\n",
-        "print(data['TotalCharges'].dtype)  # Should output float64 (or float32)"
-      ],
-      "metadata": {
-        "colab": {
-          "base_uri": "https://localhost:8080/"
-        },
-        "id": "69FvhRLTPjM-",
-        "outputId": "b6db8d36-c54b-46a6-f8b7-6ba22d97f8e2"
-      },
-      "execution_count": null,
-      "outputs": [
-        {
-          "output_type": "stream",
-          "name": "stdout",
-          "text": [
-            "0\n",
-            "float64\n"
-          ]
-        }
-      ]
     },
     {
       "cell_type": "code",
@@ -735,7 +922,7 @@
       "metadata": {
         "id": "EbYFbWphQGDm"
       },
-      "execution_count": null,
+      "execution_count": 142,
       "outputs": []
     },
     {
@@ -748,16 +935,15 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "S4RDuIt8Q7Zu",
-        "outputId": "7c2fc5a6-744e-4b2f-931d-14e282037834"
+        "outputId": "8c6b414f-9ed9-47d3-f462-67f2d3b52d78"
       },
-      "execution_count": null,
+      "execution_count": 143,
       "outputs": [
         {
           "output_type": "stream",
           "name": "stdout",
           "text": [
-            "Collecting streamlit\n",
-            "  Downloading streamlit-1.42.2-py2.py3-none-any.whl.metadata (8.9 kB)\n",
+            "Requirement already satisfied: streamlit in /usr/local/lib/python3.11/dist-packages (1.42.2)\n",
             "Requirement already satisfied: altair<6,>=4.0 in /usr/local/lib/python3.11/dist-packages (from streamlit) (5.5.0)\n",
             "Requirement already satisfied: blinker<2,>=1.0.0 in /usr/local/lib/python3.11/dist-packages (from streamlit) (1.9.0)\n",
             "Requirement already satisfied: cachetools<6,>=4.0 in /usr/local/lib/python3.11/dist-packages (from streamlit) (5.5.1)\n",
@@ -773,12 +959,9 @@
             "Requirement already satisfied: tenacity<10,>=8.1.0 in /usr/local/lib/python3.11/dist-packages (from streamlit) (9.0.0)\n",
             "Requirement already satisfied: toml<2,>=0.10.1 in /usr/local/lib/python3.11/dist-packages (from streamlit) (0.10.2)\n",
             "Requirement already satisfied: typing-extensions<5,>=4.4.0 in /usr/local/lib/python3.11/dist-packages (from streamlit) (4.12.2)\n",
-            "Collecting watchdog<7,>=2.1.5 (from streamlit)\n",
-            "  Downloading watchdog-6.0.0-py3-none-manylinux2014_x86_64.whl.metadata (44 kB)\n",
-            "\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m44.3/44.3 kB\u001b[0m \u001b[31m2.2 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
-            "\u001b[?25hRequirement already satisfied: gitpython!=3.1.19,<4,>=3.0.7 in /usr/local/lib/python3.11/dist-packages (from streamlit) (3.1.44)\n",
-            "Collecting pydeck<1,>=0.8.0b4 (from streamlit)\n",
-            "  Downloading pydeck-0.9.1-py2.py3-none-any.whl.metadata (4.1 kB)\n",
+            "Requirement already satisfied: watchdog<7,>=2.1.5 in /usr/local/lib/python3.11/dist-packages (from streamlit) (6.0.0)\n",
+            "Requirement already satisfied: gitpython!=3.1.19,<4,>=3.0.7 in /usr/local/lib/python3.11/dist-packages (from streamlit) (3.1.44)\n",
+            "Requirement already satisfied: pydeck<1,>=0.8.0b4 in /usr/local/lib/python3.11/dist-packages (from streamlit) (0.9.1)\n",
             "Requirement already satisfied: tornado<7,>=6.0.3 in /usr/local/lib/python3.11/dist-packages (from streamlit) (6.4.2)\n",
             "Requirement already satisfied: jinja2 in /usr/local/lib/python3.11/dist-packages (from altair<6,>=4.0->streamlit) (3.1.5)\n",
             "Requirement already satisfied: jsonschema>=3.0 in /usr/local/lib/python3.11/dist-packages (from altair<6,>=4.0->streamlit) (4.23.0)\n",
@@ -800,15 +983,7 @@
             "Requirement already satisfied: referencing>=0.28.4 in /usr/local/lib/python3.11/dist-packages (from jsonschema>=3.0->altair<6,>=4.0->streamlit) (0.36.2)\n",
             "Requirement already satisfied: rpds-py>=0.7.1 in /usr/local/lib/python3.11/dist-packages (from jsonschema>=3.0->altair<6,>=4.0->streamlit) (0.22.3)\n",
             "Requirement already satisfied: mdurl~=0.1 in /usr/local/lib/python3.11/dist-packages (from markdown-it-py>=2.2.0->rich<14,>=10.14.0->streamlit) (0.1.2)\n",
-            "Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.11/dist-packages (from python-dateutil>=2.8.2->pandas<3,>=1.4.0->streamlit) (1.17.0)\n",
-            "Downloading streamlit-1.42.2-py2.py3-none-any.whl (9.6 MB)\n",
-            "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m9.6/9.6 MB\u001b[0m \u001b[31m65.1 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
-            "\u001b[?25hDownloading pydeck-0.9.1-py2.py3-none-any.whl (6.9 MB)\n",
-            "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m6.9/6.9 MB\u001b[0m \u001b[31m48.7 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
-            "\u001b[?25hDownloading watchdog-6.0.0-py3-none-manylinux2014_x86_64.whl (79 kB)\n",
-            "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m79.1/79.1 kB\u001b[0m \u001b[31m4.7 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
-            "\u001b[?25hInstalling collected packages: watchdog, pydeck, streamlit\n",
-            "Successfully installed pydeck-0.9.1 streamlit-1.42.2 watchdog-6.0.0\n"
+            "Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.11/dist-packages (from python-dateutil>=2.8.2->pandas<3,>=1.4.0->streamlit) (1.17.0)\n"
           ]
         }
       ]
@@ -825,23 +1000,18 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "fZX_GwMZQLTd",
-        "outputId": "b1a886c3-ef90-49b0-d619-5bd6e99a59f7"
+        "outputId": "3bf20dae-9ded-4430-e30b-74f864e001a2"
       },
-      "execution_count": null,
+      "execution_count": 144,
       "outputs": [
         {
           "output_type": "stream",
           "name": "stderr",
           "text": [
-            "2025-02-24 18:41:47.970 WARNING streamlit.runtime.scriptrunner_utils.script_run_context: Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2025-02-24 18:41:48.165 \n",
-            "  \u001b[33m\u001b[1mWarning:\u001b[0m to view this Streamlit app on a browser, run it with the following\n",
-            "  command:\n",
-            "\n",
-            "    streamlit run /usr/local/lib/python3.11/dist-packages/colab_kernel_launcher.py [ARGUMENTS]\n",
-            "2025-02-24 18:41:48.169 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2025-02-24 18:41:48.172 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
-            "2025-02-24 18:41:48.175 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n"
+            "2025-02-25 03:08:16.732 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
+            "2025-02-25 03:08:16.740 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
+            "2025-02-25 03:08:16.743 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
+            "2025-02-25 03:08:16.746 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n"
           ]
         },
         {
@@ -852,7 +1022,7 @@
             ]
           },
           "metadata": {},
-          "execution_count": 41
+          "execution_count": 144
         }
       ]
     },
@@ -864,14 +1034,77 @@
       "metadata": {
         "id": "cZiW9S8MUpHc"
       },
-      "execution_count": 48,
+      "execution_count": 145,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 2.2. Convert Binary Columns to Numeric\n",
+        "# Include Churn in the columns to be converted to 0 and 1\n",
+        "for col in ['gender', 'Partner', 'Dependents', 'PhoneService', 'PaperlessBilling', ]:\n",
+        "    data[col] = data[col].map({'Yes': 1, 'No': 0})\n",
+        "data['gender'] = data['gender'].map({'Male': 1, 'Female': 0})"
+      ],
+      "metadata": {
+        "id": "cHUNNPVaDScz"
+      },
+      "execution_count": 178,
       "outputs": []
     },
     {
       "cell_type": "code",
       "source": [
         "#  Map 'Yes' to 1 and 'No' to 0 in the 'Churn' column\n",
-        "data['Churn'] = data['Churn'].map({'Yes': 1, 'No': 0})\n",
+        "#data['gender'] = data['gender'].map({'Yes': 1, 'No': 0})\n",
+        "\n",
+        "# Print the updated 'Churn' column to verify\n",
+        "print(data['gender'].head())\n",
+        "\n",
+        "# Print the counts to verify (more thorough)\n",
+        "print(data['gender'].value_counts())"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "4lNJ0ySIH-ku",
+        "outputId": "00248f5c-49de-4af9-c98b-fdbbc5396619"
+      },
+      "execution_count": 213,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "0      29.85\n",
+            "1    1889.50\n",
+            "2     108.15\n",
+            "3    1840.75\n",
+            "4     151.65\n",
+            "Name: gender, dtype: float64\n",
+            "gender\n",
+            "0.00       11\n",
+            "20.20      11\n",
+            "19.75       9\n",
+            "20.05       8\n",
+            "19.90       8\n",
+            "           ..\n",
+            "6849.40     1\n",
+            "692.35      1\n",
+            "130.15      1\n",
+            "3211.90     1\n",
+            "6844.50     1\n",
+            "Name: count, Length: 6531, dtype: int64\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#  Map 'Yes' to 1 and 'No' to 0 in the 'Churn' column\n",
+        "#data['Churn'] = data['Churn'].map({'Yes': 1, 'No': 0})\n",
         "\n",
         "# Print the updated 'Churn' column to verify\n",
         "print(data['Churn'].head())\n",
@@ -884,21 +1117,24 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "PfRKHEgvUx0T",
-        "outputId": "856db307-8218-4cc7-9be9-a0960ac19d30"
+        "outputId": "3dd3027d-cef9-473f-c905-85761dc87dee"
       },
-      "execution_count": 51,
+      "execution_count": 214,
       "outputs": [
         {
           "output_type": "stream",
           "name": "stdout",
           "text": [
-            "0   NaN\n",
-            "1   NaN\n",
-            "2   NaN\n",
-            "3   NaN\n",
-            "4   NaN\n",
-            "Name: Churn, dtype: float64\n",
-            "Series([], Name: count, dtype: int64)\n"
+            "0    0\n",
+            "1    0\n",
+            "2    1\n",
+            "3    0\n",
+            "4    1\n",
+            "Name: Churn, dtype: int64\n",
+            "Churn\n",
+            "0    5174\n",
+            "1    1869\n",
+            "Name: count, dtype: int64\n"
           ]
         }
       ]
@@ -906,47 +1142,101 @@
     {
       "cell_type": "code",
       "source": [
-        "st.image('CHURN.jpg')\n",
+        "# Upload the image file before using st.image()\n",
+        "uploaded_file = st.file_uploader(\"CHURN\", type=\"jpg\")\n",
+        "if uploaded_file is not None:\n",
+        "    # To read file as bytes:\n",
+        "    bytes_data = uploaded_file.getvalue()\n",
+        "    st.image(bytes_data, caption='Uploaded Image', use_column_width=True)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "HejwNALR94Rn",
+        "outputId": "21c509af-c02a-4277-cd90-f80432efdbeb"
+      },
+      "execution_count": 151,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "2025-02-25 03:09:56.687 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
+            "2025-02-25 03:09:56.689 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
+            "2025-02-25 03:09:56.690 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
+            "2025-02-25 03:09:56.692 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
+            "2025-02-25 03:09:56.693 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\n",
+        "\n",
+        "import streamlit as st\n",
+        "\n",
+        "st.title(':Graph: Customer Churn Analysis :Graph:')\n",
+        "st.text('Lets perform Customer Churn Analysis')\n",
+        "\n",
+        "try:\n",
+        "    st.image('CHURN.jpg')\n",
+        "except FileNotFoundError:\n",
+        "    st.write(\"Error: 'CHURN.jpg' not found. Please make sure the image is in the same directory as your script.\")\n",
+        "\n",
+        "\n",
+        "#Embed a Youtube video\n",
+        "st.video('https://www.youtube.com/watch?v=_dzr1pm3Ymw')\n",
+        "st.write(\"Error: 'CHURN.jpg' not found. Please make sure the image is in the same directory as your script.\")\n",
+        "\n",
+        "\n",
+        "#Embed a Youtube video\n",
         "st.video('https://www.youtube.com/watch?v=_dzr1pm3Ymw')\n",
         "\n"
       ],
       "metadata": {
         "id": "dJs_jDuuR9F2",
         "colab": {
-          "base_uri": "https://localhost:8080/",
-          "height": 425
+          "base_uri": "https://localhost:8080/"
         },
-        "outputId": "fc1ddf01-60aa-4ce2-b2b2-3d8b74cf7aa4"
+        "outputId": "ea047ff8-e7bd-4d83-c61f-6ab7432bf9ee"
       },
-      "execution_count": 52,
+      "execution_count": 107,
       "outputs": [
         {
           "output_type": "stream",
           "name": "stderr",
           "text": [
-            "2025-02-24 19:01:13.951 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n"
+            "2025-02-25 03:02:54.322 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
+            "2025-02-25 03:02:54.324 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
+            "2025-02-25 03:02:54.325 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
+            "2025-02-25 03:02:54.327 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
+            "2025-02-25 03:02:54.328 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
+            "2025-02-25 03:02:54.331 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
+            "2025-02-25 03:02:54.332 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
+            "2025-02-25 03:02:54.333 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
+            "2025-02-25 03:02:54.334 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
+            "2025-02-25 03:02:54.335 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
+            "2025-02-25 03:02:54.336 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
+            "2025-02-25 03:02:54.338 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
+            "2025-02-25 03:02:54.339 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
+            "2025-02-25 03:02:54.340 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
+            "2025-02-25 03:02:54.341 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
+            "2025-02-25 03:02:54.342 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n",
+            "2025-02-25 03:02:54.343 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.\n"
           ]
         },
         {
-          "output_type": "error",
-          "ename": "RuntimeError",
-          "evalue": "Runtime hasn't been created!",
-          "traceback": [
-            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
-            "\u001b[0;31mFileNotFoundError\u001b[0m                         Traceback (most recent call last)",
-            "\u001b[0;32m/usr/local/lib/python3.11/dist-packages/streamlit/elements/lib/image_utils.py\u001b[0m in \u001b[0;36mimage_to_url\u001b[0;34m(image, width, clamp, channels, output_format, image_id)\u001b[0m\n\u001b[1;32m    285\u001b[0m         \u001b[0;32mtry\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 286\u001b[0;31m             \u001b[0;32mwith\u001b[0m \u001b[0mopen\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mimage\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m\"rb\"\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;32mas\u001b[0m \u001b[0mf\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    287\u001b[0m                 \u001b[0mimage_data\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mf\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mread\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
-            "\u001b[0;31mFileNotFoundError\u001b[0m: [Errno 2] No such file or directory: 'CHURN.jpg'",
-            "\nDuring handling of the above exception, another exception occurred:\n",
-            "\u001b[0;31mRuntimeError\u001b[0m                              Traceback (most recent call last)",
-            "\u001b[0;32m<ipython-input-52-f9d2c8bbcb52>\u001b[0m in \u001b[0;36m<cell line: 0>\u001b[0;34m()\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0mst\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mimage\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m'CHURN.jpg'\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      2\u001b[0m \u001b[0mst\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mvideo\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m'https://www.youtube.com/watch?v=_dzr1pm3Ymw'\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      3\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n",
-            "\u001b[0;32m/usr/local/lib/python3.11/dist-packages/streamlit/runtime/metrics_util.py\u001b[0m in \u001b[0;36mwrapped_func\u001b[0;34m(*args, **kwargs)\u001b[0m\n\u001b[1;32m    408\u001b[0m                 \u001b[0m_LOGGER\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mdebug\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"Failed to collect command telemetry\"\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mexc_info\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0mex\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    409\u001b[0m         \u001b[0;32mtry\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 410\u001b[0;31m             \u001b[0mresult\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mnon_optional_func\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m*\u001b[0m\u001b[0margs\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m**\u001b[0m\u001b[0mkwargs\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    411\u001b[0m         \u001b[0;32mexcept\u001b[0m \u001b[0mRerunException\u001b[0m \u001b[0;32mas\u001b[0m \u001b[0mex\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    412\u001b[0m             \u001b[0;31m# Duplicated from below, because static analysis tools get confused\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
-            "\u001b[0;32m/usr/local/lib/python3.11/dist-packages/streamlit/elements/image.py\u001b[0m in \u001b[0;36mimage\u001b[0;34m(self, image, caption, width, use_column_width, clamp, channels, output_format, use_container_width)\u001b[0m\n\u001b[1;32m    179\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    180\u001b[0m         \u001b[0mimage_list_proto\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mImageListProto\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 181\u001b[0;31m         marshall_images(\n\u001b[0m\u001b[1;32m    182\u001b[0m             \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mdg\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_get_delta_path_str\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    183\u001b[0m             \u001b[0mimage\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
-            "\u001b[0;32m/usr/local/lib/python3.11/dist-packages/streamlit/elements/lib/image_utils.py\u001b[0m in \u001b[0;36mmarshall_images\u001b[0;34m(coordinates, image, caption, width, proto_imgs, clamp, channels, output_format)\u001b[0m\n\u001b[1;32m    437\u001b[0m         \u001b[0mimage_id\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m\"%s-%i\"\u001b[0m \u001b[0;34m%\u001b[0m \u001b[0;34m(\u001b[0m\u001b[0mcoordinates\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mcoord_suffix\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    438\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 439\u001b[0;31m         proto_img.url = image_to_url(\n\u001b[0m\u001b[1;32m    440\u001b[0m             \u001b[0mimage\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mwidth\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mclamp\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mchannels\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0moutput_format\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mimage_id\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    441\u001b[0m         )\n",
-            "\u001b[0;32m/usr/local/lib/python3.11/dist-packages/streamlit/elements/lib/image_utils.py\u001b[0m in \u001b[0;36mimage_to_url\u001b[0;34m(image, width, clamp, channels, output_format, image_id)\u001b[0m\n\u001b[1;32m    296\u001b[0m                 \u001b[0mmimetype\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m\"application/octet-stream\"\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    297\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 298\u001b[0;31m             \u001b[0murl\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mruntime\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mget_instance\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mmedia_file_mgr\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0madd\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mimage\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mmimetype\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mimage_id\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    299\u001b[0m             \u001b[0mcaching\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0msave_media_data\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mimage\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mmimetype\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mimage_id\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    300\u001b[0m             \u001b[0;32mreturn\u001b[0m \u001b[0murl\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
-            "\u001b[0;32m/usr/local/lib/python3.11/dist-packages/streamlit/runtime/__init__.py\u001b[0m in \u001b[0;36mget_instance\u001b[0;34m()\u001b[0m\n\u001b[1;32m     26\u001b[0m     \u001b[0mRuntime\u001b[0m \u001b[0mhasn\u001b[0m\u001b[0;31m'\u001b[0m\u001b[0mt\u001b[0m \u001b[0mbeen\u001b[0m \u001b[0mcreated\u001b[0m \u001b[0myet\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     27\u001b[0m     \"\"\"\n\u001b[0;32m---> 28\u001b[0;31m     \u001b[0;32mreturn\u001b[0m \u001b[0mRuntime\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0minstance\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     29\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     30\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n",
-            "\u001b[0;32m/usr/local/lib/python3.11/dist-packages/streamlit/runtime/runtime.py\u001b[0m in \u001b[0;36minstance\u001b[0;34m(cls)\u001b[0m\n\u001b[1;32m    161\u001b[0m         \"\"\"\n\u001b[1;32m    162\u001b[0m         \u001b[0;32mif\u001b[0m \u001b[0mcls\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_instance\u001b[0m \u001b[0;32mis\u001b[0m \u001b[0;32mNone\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 163\u001b[0;31m             \u001b[0;32mraise\u001b[0m \u001b[0mRuntimeError\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"Runtime hasn't been created!\"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    164\u001b[0m         \u001b[0;32mreturn\u001b[0m \u001b[0mcls\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_instance\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    165\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n",
-            "\u001b[0;31mRuntimeError\u001b[0m: Runtime hasn't been created!"
-          ]
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "DeltaGenerator()"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 107
         }
       ]
     },
@@ -963,36 +1253,28 @@
       ],
       "metadata": {
         "colab": {
-          "base_uri": "https://localhost:8080/",
-          "height": 1000
+          "base_uri": "https://localhost:8080/"
         },
         "id": "pHUHb-gnVw9-",
-        "outputId": "4833e274-0b1b-42c0-b440-0d701a694851"
+        "outputId": "5887f80e-756d-4170-81f2-184992ef144c"
       },
-      "execution_count": 54,
+      "execution_count": 153,
       "outputs": [
         {
           "output_type": "stream",
           "name": "stdout",
           "text": [
-            "Collecting dash\n",
-            "  Downloading dash-2.18.2-py3-none-any.whl.metadata (10 kB)\n",
-            "Collecting Flask<3.1,>=1.0.4 (from dash)\n",
-            "  Downloading flask-3.0.3-py3-none-any.whl.metadata (3.2 kB)\n",
-            "Collecting Werkzeug<3.1 (from dash)\n",
-            "  Downloading werkzeug-3.0.6-py3-none-any.whl.metadata (3.7 kB)\n",
+            "Requirement already satisfied: dash in /usr/local/lib/python3.11/dist-packages (2.18.2)\n",
+            "Requirement already satisfied: Flask<3.1,>=1.0.4 in /usr/local/lib/python3.11/dist-packages (from dash) (3.0.3)\n",
+            "Requirement already satisfied: Werkzeug<3.1 in /usr/local/lib/python3.11/dist-packages (from dash) (3.0.6)\n",
             "Requirement already satisfied: plotly>=5.0.0 in /usr/local/lib/python3.11/dist-packages (from dash) (5.24.1)\n",
-            "Collecting dash-html-components==2.0.0 (from dash)\n",
-            "  Downloading dash_html_components-2.0.0-py3-none-any.whl.metadata (3.8 kB)\n",
-            "Collecting dash-core-components==2.0.0 (from dash)\n",
-            "  Downloading dash_core_components-2.0.0-py3-none-any.whl.metadata (2.9 kB)\n",
-            "Collecting dash-table==5.0.0 (from dash)\n",
-            "  Downloading dash_table-5.0.0-py3-none-any.whl.metadata (2.4 kB)\n",
+            "Requirement already satisfied: dash-html-components==2.0.0 in /usr/local/lib/python3.11/dist-packages (from dash) (2.0.0)\n",
+            "Requirement already satisfied: dash-core-components==2.0.0 in /usr/local/lib/python3.11/dist-packages (from dash) (2.0.0)\n",
+            "Requirement already satisfied: dash-table==5.0.0 in /usr/local/lib/python3.11/dist-packages (from dash) (5.0.0)\n",
             "Requirement already satisfied: importlib-metadata in /usr/local/lib/python3.11/dist-packages (from dash) (8.6.1)\n",
             "Requirement already satisfied: typing-extensions>=4.1.1 in /usr/local/lib/python3.11/dist-packages (from dash) (4.12.2)\n",
             "Requirement already satisfied: requests in /usr/local/lib/python3.11/dist-packages (from dash) (2.32.3)\n",
-            "Collecting retrying (from dash)\n",
-            "  Downloading retrying-1.3.4-py3-none-any.whl.metadata (6.9 kB)\n",
+            "Requirement already satisfied: retrying in /usr/local/lib/python3.11/dist-packages (from dash) (1.3.4)\n",
             "Requirement already satisfied: nest-asyncio in /usr/local/lib/python3.11/dist-packages (from dash) (1.6.0)\n",
             "Requirement already satisfied: setuptools in /usr/local/lib/python3.11/dist-packages (from dash) (75.1.0)\n",
             "Requirement already satisfied: Jinja2>=3.1.2 in /usr/local/lib/python3.11/dist-packages (from Flask<3.1,>=1.0.4->dash) (3.1.5)\n",
@@ -1008,36 +1290,14 @@
             "Requirement already satisfied: urllib3<3,>=1.21.1 in /usr/local/lib/python3.11/dist-packages (from requests->dash) (2.3.0)\n",
             "Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.11/dist-packages (from requests->dash) (2025.1.31)\n",
             "Requirement already satisfied: six>=1.7.0 in /usr/local/lib/python3.11/dist-packages (from retrying->dash) (1.17.0)\n",
-            "Downloading dash-2.18.2-py3-none-any.whl (7.8 MB)\n",
-            "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m7.8/7.8 MB\u001b[0m \u001b[31m75.5 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
-            "\u001b[?25hDownloading dash_core_components-2.0.0-py3-none-any.whl (3.8 kB)\n",
-            "Downloading dash_html_components-2.0.0-py3-none-any.whl (4.1 kB)\n",
-            "Downloading dash_table-5.0.0-py3-none-any.whl (3.9 kB)\n",
-            "Downloading flask-3.0.3-py3-none-any.whl (101 kB)\n",
-            "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m101.7/101.7 kB\u001b[0m \u001b[31m7.5 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
-            "\u001b[?25hDownloading werkzeug-3.0.6-py3-none-any.whl (227 kB)\n",
-            "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m228.0/228.0 kB\u001b[0m \u001b[31m17.3 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
-            "\u001b[?25hDownloading retrying-1.3.4-py3-none-any.whl (11 kB)\n",
-            "Installing collected packages: dash-table, dash-html-components, dash-core-components, Werkzeug, retrying, Flask, dash\n",
-            "  Attempting uninstall: Werkzeug\n",
-            "    Found existing installation: Werkzeug 3.1.3\n",
-            "    Uninstalling Werkzeug-3.1.3:\n",
-            "      Successfully uninstalled Werkzeug-3.1.3\n",
-            "  Attempting uninstall: Flask\n",
-            "    Found existing installation: Flask 3.1.0\n",
-            "    Uninstalling Flask-3.1.0:\n",
-            "      Successfully uninstalled Flask-3.1.0\n",
-            "Successfully installed Flask-3.0.3 Werkzeug-3.0.6 dash-2.18.2 dash-core-components-2.0.0 dash-html-components-2.0.0 dash-table-5.0.0 retrying-1.3.4\n",
-            "Collecting jupyter-dash\n",
-            "  Downloading jupyter_dash-0.4.2-py3-none-any.whl.metadata (3.6 kB)\n",
+            "Requirement already satisfied: jupyter-dash in /usr/local/lib/python3.11/dist-packages (0.4.2)\n",
             "Requirement already satisfied: dash in /usr/local/lib/python3.11/dist-packages (from jupyter-dash) (2.18.2)\n",
             "Requirement already satisfied: requests in /usr/local/lib/python3.11/dist-packages (from jupyter-dash) (2.32.3)\n",
             "Requirement already satisfied: flask in /usr/local/lib/python3.11/dist-packages (from jupyter-dash) (3.0.3)\n",
             "Requirement already satisfied: retrying in /usr/local/lib/python3.11/dist-packages (from jupyter-dash) (1.3.4)\n",
             "Requirement already satisfied: ipython in /usr/local/lib/python3.11/dist-packages (from jupyter-dash) (7.34.0)\n",
             "Requirement already satisfied: ipykernel in /usr/local/lib/python3.11/dist-packages (from jupyter-dash) (6.17.1)\n",
-            "Collecting ansi2html (from jupyter-dash)\n",
-            "  Downloading ansi2html-1.9.2-py3-none-any.whl.metadata (3.7 kB)\n",
+            "Requirement already satisfied: ansi2html in /usr/local/lib/python3.11/dist-packages (from jupyter-dash) (1.9.2)\n",
             "Requirement already satisfied: nest-asyncio in /usr/local/lib/python3.11/dist-packages (from jupyter-dash) (1.6.0)\n",
             "Requirement already satisfied: Werkzeug<3.1 in /usr/local/lib/python3.11/dist-packages (from dash->jupyter-dash) (3.0.6)\n",
             "Requirement already satisfied: plotly>=5.0.0 in /usr/local/lib/python3.11/dist-packages (from dash->jupyter-dash) (5.24.1)\n",
@@ -1059,8 +1319,7 @@
             "Requirement already satisfied: pyzmq>=17 in /usr/local/lib/python3.11/dist-packages (from ipykernel->jupyter-dash) (24.0.1)\n",
             "Requirement already satisfied: tornado>=6.1 in /usr/local/lib/python3.11/dist-packages (from ipykernel->jupyter-dash) (6.4.2)\n",
             "Requirement already satisfied: traitlets>=5.1.0 in /usr/local/lib/python3.11/dist-packages (from ipykernel->jupyter-dash) (5.7.1)\n",
-            "Collecting jedi>=0.16 (from ipython->jupyter-dash)\n",
-            "  Downloading jedi-0.19.2-py2.py3-none-any.whl.metadata (22 kB)\n",
+            "Requirement already satisfied: jedi>=0.16 in /usr/local/lib/python3.11/dist-packages (from ipython->jupyter-dash) (0.19.2)\n",
             "Requirement already satisfied: decorator in /usr/local/lib/python3.11/dist-packages (from ipython->jupyter-dash) (4.4.2)\n",
             "Requirement already satisfied: pickleshare in /usr/local/lib/python3.11/dist-packages (from ipython->jupyter-dash) (0.7.5)\n",
             "Requirement already satisfied: prompt-toolkit!=3.0.0,!=3.0.1,<3.1.0,>=2.0.0 in /usr/local/lib/python3.11/dist-packages (from ipython->jupyter-dash) (3.0.50)\n",
@@ -1080,31 +1339,7 @@
             "Requirement already satisfied: tenacity>=6.2.0 in /usr/local/lib/python3.11/dist-packages (from plotly>=5.0.0->dash->jupyter-dash) (9.0.0)\n",
             "Requirement already satisfied: wcwidth in /usr/local/lib/python3.11/dist-packages (from prompt-toolkit!=3.0.0,!=3.0.1,<3.1.0,>=2.0.0->ipython->jupyter-dash) (0.2.13)\n",
             "Requirement already satisfied: zipp>=3.20 in /usr/local/lib/python3.11/dist-packages (from importlib-metadata->dash->jupyter-dash) (3.21.0)\n",
-            "Requirement already satisfied: platformdirs>=2.5 in /usr/local/lib/python3.11/dist-packages (from jupyter-core>=4.6.0->jupyter-client>=6.1.12->ipykernel->jupyter-dash) (4.3.6)\n",
-            "Downloading jupyter_dash-0.4.2-py3-none-any.whl (23 kB)\n",
-            "Downloading ansi2html-1.9.2-py3-none-any.whl (17 kB)\n",
-            "Downloading jedi-0.19.2-py2.py3-none-any.whl (1.6 MB)\n",
-            "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m1.6/1.6 MB\u001b[0m \u001b[31m32.9 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
-            "\u001b[?25hInstalling collected packages: jedi, ansi2html, jupyter-dash\n",
-            "Successfully installed ansi2html-1.9.2 jedi-0.19.2 jupyter-dash-0.4.2\n"
-          ]
-        },
-        {
-          "output_type": "stream",
-          "name": "stderr",
-          "text": [
-            "<ipython-input-54-4cab49680b14>:4: UserWarning:\n",
-            "\n",
-            "\n",
-            "The dash_core_components package is deprecated. Please replace\n",
-            "`import dash_core_components as dcc` with `from dash import dcc`\n",
-            "\n",
-            "<ipython-input-54-4cab49680b14>:5: UserWarning:\n",
-            "\n",
-            "\n",
-            "The dash_html_components package is deprecated. Please replace\n",
-            "`import dash_html_components as html` with `from dash import html`\n",
-            "\n"
+            "Requirement already satisfied: platformdirs>=2.5 in /usr/local/lib/python3.11/dist-packages (from jupyter-core>=4.6.0->jupyter-client>=6.1.12->ipykernel->jupyter-dash) (4.3.6)\n"
           ]
         }
       ]
@@ -1177,13 +1412,12 @@
       ],
       "metadata": {
         "colab": {
-          "base_uri": "https://localhost:8080/",
-          "height": 672
+          "base_uri": "https://localhost:8080/"
         },
         "id": "hyFDdRTJVeK4",
-        "outputId": "543c59d7-fbeb-474b-9bfb-4511ad8156dc"
+        "outputId": "ab5080ec-1c1b-4a3b-b45a-8e0be384e2b1"
       },
-      "execution_count": 55,
+      "execution_count": 216,
       "outputs": [
         {
           "output_type": "display_data",
@@ -1235,18 +1469,18 @@
         "from dash.dependencies import Input, Output\n",
         "\n",
         "# 1. Load and Preprocess the Data\n",
-        "data = pd.read_csv(\"WA_Fn-UseC_-Telco-Customer-Churn.csv\")\n",
+        "# data = pd.read_csv(\"WA_Fn-UseC_-Telco-Customer-Churn.csv\")\n",
         "\n",
         "# Handle missing values in 'TotalCharges'\n",
-        "data['TotalCharges'] = data['TotalCharges'].replace(' ', np.nan)\n",
-        "data['TotalCharges'] = pd.to_numeric(data['TotalCharges'], errors='coerce')\n",
-        "data['TotalCharges'] = data['TotalCharges'].fillna(0)\n",
+        "# data['TotalCharges'] = data['TotalCharges'].replace(' ', np.nan)\n",
+        "# data['TotalCharges'] = pd.to_numeric(data['TotalCharges'], errors='coerce')\n",
+        "# data['TotalCharges'] = data['TotalCharges'].fillna(0)\n",
         "\n",
         "# Convert 'Churn' to numerical (0 and 1)\n",
-        "data['Churn'] = data['Churn'].map({'Yes': 1, 'No': 0})\n",
+        "# data['Churn'] = data['Churn'].map({'Yes': 1, 'No': 0})\n",
         "\n",
         "# Convert SeniorCitizen to object for categorical treatment\n",
-        "data['SeniorCitizen'] = data['SeniorCitizen'].astype(object)\n",
+        "# data['SeniorCitizen'] = data['SeniorCitizen'].astype(object)\n",
         "\n",
         "# 2.  Dashboard Layout\n",
         "\n",
@@ -1357,9 +1591,9 @@
           "height": 672
         },
         "id": "s5g5LbbSXOVH",
-        "outputId": "07ba8413-a4d8-4c1f-a648-d99cb0be987f"
+        "outputId": "409d89c6-cbac-4453-8a30-91a576c1aacb"
       },
-      "execution_count": 56,
+      "execution_count": 155,
       "outputs": [
         {
           "output_type": "display_data",
@@ -1410,7 +1644,7 @@
       "metadata": {
         "id": "KH0AhXPJYAvH"
       },
-      "execution_count": 57,
+      "execution_count": 156,
       "outputs": []
     },
     {
@@ -1431,7 +1665,7 @@
       "metadata": {
         "id": "RdGu7z4gYHb-"
       },
-      "execution_count": 58,
+      "execution_count": 217,
       "outputs": []
     },
     {
@@ -1478,12 +1712,12 @@
         "\n",
         "# 6. Run the App\n",
         "#if __name__ == '__main__':\n",
-        "   # app.run_server(debug=True)"
+        "#app.run_server(debug=True)"
       ],
       "metadata": {
         "id": "6GvrH5DCYNxC"
       },
-      "execution_count": 61,
+      "execution_count": 158,
       "outputs": []
     },
     {
@@ -1494,6 +1728,283 @@
       "metadata": {
         "id": "bPW6T1KZEjyW"
       }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "import numpy as np\n",
+        "from sklearn.model_selection import train_test_split\n",
+        "from sklearn.preprocessing import StandardScaler, OneHotEncoder\n",
+        "from sklearn.compose import ColumnTransformer\n",
+        "from sklearn.linear_model import LogisticRegression\n",
+        "from sklearn.metrics import accuracy_score, classification_report, confusion_matrix\n",
+        "import plotly.express as px  # For visualizations"
+      ],
+      "metadata": {
+        "id": "dj8ExQIdZ369"
+      },
+      "execution_count": 159,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 2. Preprocessing\n",
+        "# 2.1. Handle Missing Values\n",
+        "# data['TotalCharges'] = data['TotalCharges'].replace(' ', np.nan)\n",
+        "# data['TotalCharges'] = pd.to_numeric(data['TotalCharges'], errors='coerce')\n",
+        "# data['TotalCharges'] = data['TotalCharges'].fillna(0)\n",
+        "\n",
+        "# 2.1. Handle Missing Values\n",
+        "# data['TotalCharges'] = data['TotalCharges'].replace(' ', np.nan)\n",
+        "# data['TotalCharges'] = pd.to_numeric(data['TotalCharges'], errors='coerce')\n",
+        "# data['TotalCharges'] = data['TotalCharges'].fillna(0)  # Imputation with 0\n"
+      ],
+      "metadata": {
+        "id": "zsjgh3lSZ83e"
+      },
+      "execution_count": 44,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [],
+      "metadata": {
+        "id": "l47si84_d-1V"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 2.2. Convert Binary Columns to Numeric\n",
+        "# for col in ['Partner', 'Dependents', 'PhoneService', 'PaperlessBilling', 'Churn']:\n",
+        "   #  data[col] = data[col].map({'Yes': 1, 'No': 0})\n",
+        "data['gender'] = data['gender'].map({'Male': 1, 'Female': 0})\n"
+      ],
+      "metadata": {
+        "id": "TEXY6yJTb4ez"
+      },
+      "execution_count": 218,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 2.3. Identify Categorical and Numerical Features\n",
+        "# categorical_features = data.select_dtypes(include='object').columns\n",
+        "# numerical_features = data.select_dtypes(include=['int64', 'float64']).columns.drop('Churn')  # Exclude target"
+      ],
+      "metadata": {
+        "id": "MjCtqKaTbTVj"
+      },
+      "execution_count": 120,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 2.4. Create a ColumnTransformer\n",
+        "preprocessor = ColumnTransformer(\n",
+        "    transformers=[\n",
+        "        ('num', StandardScaler(), numerical_features),\n",
+        "        ('cat', OneHotEncoder(handle_unknown='ignore'), categorical_features)  # handle_unknown crucial\n",
+        "    ],\n",
+        "    remainder='passthrough'  # Crucial: Keep other columns\n",
+        ")"
+      ],
+      "metadata": {
+        "id": "ED_os6MLbYGH"
+      },
+      "execution_count": 161,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Impute missing values in y_train (e.g., with the most frequent value)\n",
+        "from sklearn.impute import SimpleImputer\n",
+        "\n",
+        "imputer = SimpleImputer(strategy='most_frequent')  # Use most frequent strategy\n",
+        "y_train = imputer.fit_transform(y_train.values.reshape(-1, 1))  # Reshape for imputer\n",
+        "y_train = y_train.ravel()  # Flatten back to original shape"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "8VEUX4hy_p3R",
+        "outputId": "4b72629e-9053-419c-f0a2-6fd7c22e953e"
+      },
+      "execution_count": 162,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "/usr/local/lib/python3.11/dist-packages/sklearn/impute/_base.py:635: UserWarning:\n",
+            "\n",
+            "Skipping features without any observed values: [0]. At least one non-missing value is needed for imputation with strategy='most_frequent'.\n",
+            "\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\n",
+        "\n",
+        "# 3. Split Data into Training and Testing Sets\n",
+        "X = data.drop(['Churn', ], axis=1)  # Drop target and ID\n",
+        "y = data['Churn']\n",
+        "X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)"
+      ],
+      "metadata": {
+        "id": "-ieLsIsDcJ3x"
+      },
+      "execution_count": 219,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 4. Apply the Preprocessor\n",
+        "# ----> Only apply fit_transform on the training data once\n",
+        "X_train_transformed = preprocessor.fit_transform(X_train)\n",
+        "X_test_transformed = preprocessor.transform(X_test)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "pGEXTfuEcNV0",
+        "outputId": "93686025-0758-4842-8308-3498c805dba5"
+      },
+      "execution_count": 220,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "/usr/local/lib/python3.11/dist-packages/sklearn/utils/extmath.py:1101: RuntimeWarning:\n",
+            "\n",
+            "invalid value encountered in divide\n",
+            "\n",
+            "/usr/local/lib/python3.11/dist-packages/sklearn/utils/extmath.py:1106: RuntimeWarning:\n",
+            "\n",
+            "invalid value encountered in divide\n",
+            "\n",
+            "/usr/local/lib/python3.11/dist-packages/sklearn/utils/extmath.py:1126: RuntimeWarning:\n",
+            "\n",
+            "invalid value encountered in divide\n",
+            "\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Now use X_train_transformed and X_test_transformed for your model training\n"
+      ],
+      "metadata": {
+        "id": "X2A-nwwyZ-_x"
+      },
+      "execution_count": 222,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 4. Apply the Preprocessor (Only transform, not fit_transform on X_train)\n",
+        "X_train = preprocessor.fit_transform(X_train) # Fit and transform on the training data\n",
+        "X_test = preprocessor.transform(X_test) # Only transform the testing data"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "_eon83X8ai-e",
+        "outputId": "6576857f-30c9-41f7-f176-249bd36d56bf"
+      },
+      "execution_count": 221,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "/usr/local/lib/python3.11/dist-packages/sklearn/utils/extmath.py:1101: RuntimeWarning:\n",
+            "\n",
+            "invalid value encountered in divide\n",
+            "\n",
+            "/usr/local/lib/python3.11/dist-packages/sklearn/utils/extmath.py:1106: RuntimeWarning:\n",
+            "\n",
+            "invalid value encountered in divide\n",
+            "\n",
+            "/usr/local/lib/python3.11/dist-packages/sklearn/utils/extmath.py:1126: RuntimeWarning:\n",
+            "\n",
+            "invalid value encountered in divide\n",
+            "\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "import numpy as np\n",
+        "from sklearn.model_selection import train_test_split\n",
+        "from sklearn.preprocessing import StandardScaler, OneHotEncoder\n",
+        "from sklearn.compose import ColumnTransformer\n",
+        "# Make sure to import LogisticRegression:\n",
+        "from sklearn.linear_model import LogisticRegression\n",
+        "from sklearn.metrics import accuracy_score, classification_report, confusion_matrix\n",
+        "import plotly.express as px  # For visualizations"
+      ],
+      "metadata": {
+        "id": "qIzurWG6_Qj_"
+      },
+      "execution_count": 223,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 5. Train Logistic Regression Model\n",
+        "model = LogisticRegression(solver='liblinear', random_state=42)  # 'liblinear' good for smaller datasets\n",
+        "model.fit(X_train, y_train)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "pfMLjBSXBVIi",
+        "outputId": "e8bee1d8-86b6-494f-d5d3-04df2de39c76"
+      },
+      "execution_count": 224,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "ValueError",
+          "evalue": "Input X contains NaN.\nLogisticRegression does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mValueError\u001b[0m                                Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-224-341ddb932e30>\u001b[0m in \u001b[0;36m<cell line: 0>\u001b[0;34m()\u001b[0m\n\u001b[1;32m      1\u001b[0m \u001b[0;31m# 5. Train Logistic Regression Model\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      2\u001b[0m \u001b[0mmodel\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mLogisticRegression\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0msolver\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0;34m'liblinear'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mrandom_state\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0;36m42\u001b[0m\u001b[0;34m)\u001b[0m  \u001b[0;31m# 'liblinear' good for smaller datasets\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 3\u001b[0;31m \u001b[0mmodel\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mfit\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mX_train\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0my_train\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+            "\u001b[0;32m/usr/local/lib/python3.11/dist-packages/sklearn/base.py\u001b[0m in \u001b[0;36mwrapper\u001b[0;34m(estimator, *args, **kwargs)\u001b[0m\n\u001b[1;32m   1387\u001b[0m                 )\n\u001b[1;32m   1388\u001b[0m             ):\n\u001b[0;32m-> 1389\u001b[0;31m                 \u001b[0;32mreturn\u001b[0m \u001b[0mfit_method\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mestimator\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m*\u001b[0m\u001b[0margs\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m**\u001b[0m\u001b[0mkwargs\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   1390\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1391\u001b[0m         \u001b[0;32mreturn\u001b[0m \u001b[0mwrapper\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m/usr/local/lib/python3.11/dist-packages/sklearn/linear_model/_logistic.py\u001b[0m in \u001b[0;36mfit\u001b[0;34m(self, X, y, sample_weight)\u001b[0m\n\u001b[1;32m   1220\u001b[0m             \u001b[0m_dtype\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m[\u001b[0m\u001b[0mnp\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mfloat64\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mnp\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mfloat32\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1221\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m-> 1222\u001b[0;31m         X, y = validate_data(\n\u001b[0m\u001b[1;32m   1223\u001b[0m             \u001b[0mself\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1224\u001b[0m             \u001b[0mX\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m/usr/local/lib/python3.11/dist-packages/sklearn/utils/validation.py\u001b[0m in \u001b[0;36mvalidate_data\u001b[0;34m(_estimator, X, y, reset, validate_separately, skip_check_array, **check_params)\u001b[0m\n\u001b[1;32m   2959\u001b[0m             \u001b[0my\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mcheck_array\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0my\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0minput_name\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0;34m\"y\"\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m**\u001b[0m\u001b[0mcheck_y_params\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   2960\u001b[0m         \u001b[0;32melse\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m-> 2961\u001b[0;31m             \u001b[0mX\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0my\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mcheck_X_y\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mX\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0my\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m**\u001b[0m\u001b[0mcheck_params\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   2962\u001b[0m         \u001b[0mout\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mX\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0my\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   2963\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m/usr/local/lib/python3.11/dist-packages/sklearn/utils/validation.py\u001b[0m in \u001b[0;36mcheck_X_y\u001b[0;34m(X, y, accept_sparse, accept_large_sparse, dtype, order, copy, force_writeable, force_all_finite, ensure_all_finite, ensure_2d, allow_nd, multi_output, ensure_min_samples, ensure_min_features, y_numeric, estimator)\u001b[0m\n\u001b[1;32m   1368\u001b[0m     \u001b[0mensure_all_finite\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0m_deprecate_force_all_finite\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mforce_all_finite\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mensure_all_finite\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1369\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m-> 1370\u001b[0;31m     X = check_array(\n\u001b[0m\u001b[1;32m   1371\u001b[0m         \u001b[0mX\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1372\u001b[0m         \u001b[0maccept_sparse\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0maccept_sparse\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m/usr/local/lib/python3.11/dist-packages/sklearn/utils/validation.py\u001b[0m in \u001b[0;36mcheck_array\u001b[0;34m(array, accept_sparse, accept_large_sparse, dtype, order, copy, force_writeable, force_all_finite, ensure_all_finite, ensure_non_negative, ensure_2d, allow_nd, ensure_min_samples, ensure_min_features, estimator, input_name)\u001b[0m\n\u001b[1;32m   1012\u001b[0m     \u001b[0;32mif\u001b[0m \u001b[0msp\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0missparse\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0marray\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1013\u001b[0m         \u001b[0m_ensure_no_complex_data\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0marray\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m-> 1014\u001b[0;31m         array = _ensure_sparse_format(\n\u001b[0m\u001b[1;32m   1015\u001b[0m             \u001b[0marray\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1016\u001b[0m             \u001b[0maccept_sparse\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0maccept_sparse\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m/usr/local/lib/python3.11/dist-packages/sklearn/utils/validation.py\u001b[0m in \u001b[0;36m_ensure_sparse_format\u001b[0;34m(sparse_container, accept_sparse, dtype, copy, ensure_all_finite, accept_large_sparse, estimator_name, input_name)\u001b[0m\n\u001b[1;32m    647\u001b[0m             )\n\u001b[1;32m    648\u001b[0m         \u001b[0;32melse\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 649\u001b[0;31m             _assert_all_finite(\n\u001b[0m\u001b[1;32m    650\u001b[0m                 \u001b[0msparse_container\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mdata\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    651\u001b[0m                 \u001b[0mallow_nan\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0mensure_all_finite\u001b[0m \u001b[0;34m==\u001b[0m \u001b[0;34m\"allow-nan\"\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m/usr/local/lib/python3.11/dist-packages/sklearn/utils/validation.py\u001b[0m in \u001b[0;36m_assert_all_finite\u001b[0;34m(X, allow_nan, msg_dtype, estimator_name, input_name)\u001b[0m\n\u001b[1;32m    118\u001b[0m         \u001b[0;32mreturn\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    119\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 120\u001b[0;31m     _assert_all_finite_element_wise(\n\u001b[0m\u001b[1;32m    121\u001b[0m         \u001b[0mX\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    122\u001b[0m         \u001b[0mxp\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0mxp\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m/usr/local/lib/python3.11/dist-packages/sklearn/utils/validation.py\u001b[0m in \u001b[0;36m_assert_all_finite_element_wise\u001b[0;34m(X, xp, allow_nan, msg_dtype, estimator_name, input_name)\u001b[0m\n\u001b[1;32m    167\u001b[0m                 \u001b[0;34m\"#estimators-that-handle-nan-values\"\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    168\u001b[0m             )\n\u001b[0;32m--> 169\u001b[0;31m         \u001b[0;32mraise\u001b[0m \u001b[0mValueError\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mmsg_err\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    170\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    171\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mValueError\u001b[0m: Input X contains NaN.\nLogisticRegression does not accept missing values encoded as NaN natively. For supervised learning, you might want to consider sklearn.ensemble.HistGradientBoostingClassifier and Regressor which accept missing values encoded as NaNs natively. Alternatively, it is possible to preprocess the data, for instance by using an imputer transformer in a pipeline or drop samples with missing values. See https://scikit-learn.org/stable/modules/impute.html You can find a list of all estimators that handle NaN values at the following page: https://scikit-learn.org/stable/modules/impute.html#estimators-that-handle-nan-values"
+          ]
+        }
+      ]
     },
     {
       "cell_type": "markdown",
